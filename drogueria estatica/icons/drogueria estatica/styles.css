@@ -1,0 +1,328 @@
+/* Estilos Generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  position: relative;
+  overflow-x: hidden;
+  background-color: #333;
+}
+
+/* Contenedor de Fondo con Cruces */
+.background-cruces {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Colocar detrás del contenido */
+  overflow: hidden;
+}
+
+.cruz {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  transform-origin: center;
+  animation: flotar 10s infinite ease-in-out;
+}
+
+/* Crear la forma de la cruz usando ::before y ::after */
+.cruz::before,
+.cruz::after {
+  content: "";
+  position: absolute;
+  background-color: #8bff8b; /* Verde claro */
+  border-radius: 2px;
+}
+
+.cruz::before {
+  width: 100%;
+  height: 4px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.cruz::after {
+  width: 4px;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+/* Asignar colores alternativos a las cruces */
+.cruz:nth-child(odd)::before,
+.cruz:nth-child(odd)::after {
+  background-color: #ff8b8b; /* Rojo claro */
+}
+
+/* Posiciones iniciales aleatorias */
+.cruz:nth-child(1) {
+  top: 20%;
+  left: 80%;
+  animation-delay: 0s;
+}
+.cruz:nth-child(2) {
+  top: 90%;
+  left: 30%;
+  animation-delay: 0s;
+}
+.cruz:nth-child(3) {
+  top: -5%;
+  left: 60%;
+  animation-delay: 0s;
+}
+.cruz:nth-child(4) {
+  top: 70%;
+  left: 10%;
+  animation-delay: 0s;
+}
+.cruz:nth-child(5) {
+  top: 40%;
+  left: -10%;
+  animation-delay: 0s;
+}
+.cruz:nth-child(6) {
+  top: 110%;
+  left: 50%;
+  animation-delay: 0s;
+}
+.cruz:nth-child(7) {
+  top: 5%;
+  left: 95%;
+  animation-delay: 0s;
+}
+.cruz:nth-child(8) {
+  top: 60%;
+  left: 25%;
+  animation-delay: 0s;
+}
+.cruz:nth-child(9) {
+  top: -10%;
+  left: 85%;
+  animation-delay: 0s;
+}
+.cruz:nth-child(10) {
+  top: 30%;
+  left: 110%;
+  animation-delay: 0s;
+}
+.cruz:nth-child(11) {
+  top: 85%;
+  left: 15%;
+  animation-delay: 0s;
+}
+.cruz:nth-child(12) {
+  top: 50%;
+  left: 70%;
+  animation-delay: 0s;
+}
+
+/* Animación de flotación */
+@keyframes flotar {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(50px, -50px) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+    opacity: 0.8;
+  }
+}
+
+/* Encabezado */
+header {
+  background-color: rgba(0, 123, 255, 0.9);
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+header .logo h1 {
+  font-size: 2rem;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Sección Inicio */
+.hero {
+  text-align: center;
+  padding: 5rem 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Sección Productos */
+.productos {
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.producto {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contacto {
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+section {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #007bff;
+}
+
+label {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #007bff;
+}
+
+#formulario-contacto {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#formulario-contacto label {
+  font-weight: bold;
+}
+
+#formulario-contacto input,
+#formulario-contacto textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+svg {
+  overflow: visible;
+}
+svg path#line {
+  color: transparent;
+  fill: none;
+  stroke: #e00000;
+  stroke-width: 2;
+  stroke-linecap: butt;
+  stroke-linejoin: round;
+  stroke-miterlimit: 4;
+  stroke-dasharray: none;
+  stroke-opacity: 1;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: dash 4s linear infinite;
+}
+svg path#heart {
+  transform-origin: 50% 50%;
+  animation: blink 4s linear infinite;
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 1;
+  }
+  80% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  60% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  85% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
